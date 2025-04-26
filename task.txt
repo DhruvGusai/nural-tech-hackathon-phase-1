@@ -1,1 +1,21 @@
-.
+Create table Users
+  (UserID Bigint ,
+UserName varchar(50)
+  )
+
+insert into users(username)
+  values('Jhon'),
+  ('Jane')
+
+create table UserDetails(UserDetailID bigint identity(1,1) primary key,
+   UserID Bigint,
+   DateofBirth date
+  )
+
+insert into UserDetails(userid, dateofbirth)
+  values(1,'02-05-2000'),
+  (3, '15-08-1998')
+
+select users.userid, username, dateofbirth from users 
+  left join userdetails 
+  on users.userid=userdetails.userid

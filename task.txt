@@ -1,2 +1,53 @@
-.
-hema
+// Online C# Editor for free
+// Write, Edit and Run your C# code using C# Online Compiler
+
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+      
+        public List<arr1> Arr1 = new  List<arr1>();
+       
+        public List<arr2> Arr2 = new  List<arr2>();
+
+        mergeUserData(Arr1, Arr2);
+    }
+    
+    public class arr1{
+        public int userID {get;set;} 
+        public string Name {get;set;} = null;
+    }
+    
+    public class arr2 {
+        public int userID {get;set;}
+        public string DateOfBirth {get;set;} = null;
+    }
+    
+    public class resultArr {
+        public int newUserID {get;set;}
+        public string newName {get;set;}= null;
+        public string newDateOfBirth {get;set;}= null;
+    }
+    
+    public List<resultArr> mergeUserData(arr1, arr2){
+        //List<resultArr> result = new  List<resultArr>();
+        
+        foreach(var i in arr1){
+            foreach(var j in arr2){
+                     List<resultArr> result = new  List<resultArr>(){
+                        newUserID = Convert.ToInt32(i.userID) == 0 ? j.userID : i.userID,
+                        newName =  i.name,
+                        newDateOfBirth = j.DateOfBirth
+                    }
+                   
+            }
+            
+        }
+        return result;
+    }
+    
+   
+    
+}

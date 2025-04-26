@@ -1,1 +1,97 @@
-.
+-- Using MS SQL Server
+
+-- creating first table dbo.Employee for array1 (userID, Name)
+CREATE TABLE dbo.Employee (
+  userID int,
+  Name varchar(100)
+);
+
+-- creating second table dbo.EmployeeDOB for array2 (userID, DateOfBirth)
+CREATE TABLE dbo.EmployeeDOB (
+  userID int,
+  DateOfBirth date
+);
+
+-- Starting Example 1
+
+-- inserting data into first table dbo.Employee
+INSERT INTO dbo.Employee(userID,Name) 
+VALUES 
+(1, 'Jhon'),
+(2, 'Jane');
+
+-- inserting data into first table dbo.EmployeeDOB
+INSERT INTO dbo.EmployeeDOB(userID,DateOfBirth) 
+VALUES 
+(1, '2000-05-02'),
+(3, '1998-08-15');
+
+/* fetching response data as array3 as response array 
+   with all the columns (userID, Name, DateOfBirth) */
+SELECT isnull(emp.userID, empDOB.userID) as userID, emp.Name, 
+format(empDOB.DateOfBirth, 'dd-MM-yyyy') as DateOfBirth
+FROM dbo.Employee emp 
+full outer JOIN dbo.EmployeeDOB empDOB 
+on emp.userID = empDOB.userID
+/* full outer join is used to take all the matched or 
+   un matched data from both tables as required */
+   
+-- Ending Example 1
+
+-- Starting Example 2
+
+truncate table dbo.Employee -- truncating table to store new data for further examples
+truncate table dbo.EmployeeDOB -- truncating table to store new data for further examples
+
+-- inserting data into first table dbo.Employee
+INSERT INTO dbo.Employee(userID,Name) 
+VALUES 
+(4, 'Michael'),
+(5, 'Alice');
+
+-- inserting data into first table dbo.EmployeeDOB
+INSERT INTO dbo.EmployeeDOB(userID,DateOfBirth) 
+VALUES 
+(5, '1995-02-11'),
+(6, '1990-09-22');
+
+/* fetching response data as array3 as response array 
+   with all the columns (userID, Name, DateOfBirth) */
+SELECT isnull(emp.userID, empDOB.userID) as userID, emp.Name, 
+format(empDOB.DateOfBirth, 'dd-MM-yyyy') as DateOfBirth
+FROM dbo.Employee emp 
+full outer JOIN dbo.EmployeeDOB empDOB 
+on emp.userID = empDOB.userID
+/* full outer join is used to take all the matched or 
+   un matched data from both tables as required */
+   
+-- Ending Example 2
+
+-- Starting Example 3
+
+truncate table dbo.Employee -- truncating table to store new data for further examples
+truncate table dbo.EmployeeDOB -- truncating table to store new data for further examples
+
+-- inserting data into first table dbo.Employee
+INSERT INTO dbo.Employee(userID,Name) 
+VALUES 
+(7, 'John');
+
+-- inserting data into first table dbo.EmployeeDOB
+INSERT INTO dbo.EmployeeDOB(userID,DateOfBirth) 
+VALUES 
+(7, '1985-03-15');
+
+/* fetching response data as array3 as response array 
+   with all the columns (userID, Name, DateOfBirth) */
+SELECT isnull(emp.userID, empDOB.userID) as userID, emp.Name, 
+format(empDOB.DateOfBirth, 'dd-MM-yyyy') as DateOfBirth
+FROM dbo.Employee emp 
+full outer JOIN dbo.EmployeeDOB empDOB 
+on emp.userID = empDOB.userID
+/* full outer join is used to take all the matched or 
+   un matched data from both tables as required */
+   
+-- Ending Example 3
+
+GO

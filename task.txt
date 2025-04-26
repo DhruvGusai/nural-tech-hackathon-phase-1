@@ -1,1 +1,25 @@
-.
+void main() {
+  searchUserID();
+}
+
+searchUserID() {
+  List a = [
+    {"userID": "1", "Name": "Jhon"},
+  ];
+  List b = [
+    {"userID": "1", "DateOfBirth": "02-05-2000"},
+  ];
+  List<dynamic> selectedUserID = [];
+  print(a.first["userID"]);
+  print(b.first["userID"]);
+  if (a.first["userID"] == b.first["userID"]) {
+    var newList = a[0]["userID"] + " " + a[0]["Name"] + " " + b[0]["DateOfBirth"];
+    print("User ID Matched");
+    selectedUserID.add(newList);
+    print("${selectedUserID.length}");
+    print("${selectedUserID}");
+  } else {
+    print("Not matched")
+  }
+}
+

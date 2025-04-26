@@ -1,1 +1,28 @@
 .
+
+-- Online SQL Editor to Run SQL Online.
+-- Use the editor to create new tables, insert data and all other SQL operations.
+  
+CREATE TABLE  Student
+(
+UserId INT,
+Name VARCHAR(80) 
+)
+CREATE TABLE  Student3
+(
+UserId INT,
+DateofBirth DATE
+)
+INSERT  into Student(UserId,Name) values(1,'jhon')
+INSERT  into Student(UserId,Name)  VALUEs(2,' Jane')
+
+INSERT into Student3(UserId,DateofBirth) values(1,'12-apr-2025')
+INSERT into Student3(UserId,DateofBirth) values(3,'30-apr-2025')
+
+select * from Student
+select * from Student3
+
+select Student.UserId,Name,Student3.DateofBirth from Student inner join  Student3 on Student3.UserId=Student.UserId
+union all 
+select Student3.UserId,null,DateofBirth from Student3  
+

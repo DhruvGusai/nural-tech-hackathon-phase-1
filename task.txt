@@ -1,1 +1,59 @@
-.
+const a = [
+  { userID: 1, Name: "Jhon" },
+  { userID: 2, Name: "Jane" }
+];
+
+const b = [
+  { userID: 1, DateOfBirth: "02-05-2000" },
+  { userID: 3, DateOfBirth: "15-08-1998" }
+];
+
+const output = [];
+
+for (let i = 0; i < a.length; i++) {
+  const userA = a[i];
+  let flag = false;
+
+  for (let j = 0; j < b.length; j++) {
+    const userB = b[j];
+    if (userA.userID === userB.userID) {
+      output.push({
+        userID: userA.userID,
+        Name: userA.Name,
+        DateOfBirth: userB.DateOfBirth
+      });
+      flag = true;
+      break;
+    }
+  }
+
+  if (!flag) {
+    output.push({
+      userID: userA.userID,
+      Name: userA.Name,
+      DateOfBirth: null
+    });
+  }
+}
+
+for (let i = 0; i < b.length; i++) {
+  const userB = b[i];
+  let exists = false;
+
+  for (let j = 0; j < a.length; j++) {
+    if (userB.userID === a[j].userID) {
+      exists = true;
+      break;
+    }
+  }
+
+  if (!exists) {
+    output.push({
+      userID: userB.userID,
+      Name: null,
+      DateOfBirth: userB.DateOfBirth
+    });
+  }
+}
+
+console.log(output);

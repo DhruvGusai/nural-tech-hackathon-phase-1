@@ -1,1 +1,67 @@
-.
+// input
+
+const a = [
+  { userID: 4, Name: "Michael" },
+  { userID: 5, Name: "Alice" }
+];
+
+const b = [
+  { userID: 5, DateOfBirth: "11-02-1995" },
+  { userID: 6, DateOfBirth: "22-09-1990" },
+  { userID: 9, DateOfBirth: "22-09-1990" },
+  { userID: 12, DateOfBirth: "22-09-1990" }
+];
+// to store result
+let result = [];
+let ans = {};
+
+
+for (let i = 0; i < a.length; i++) {
+  let exist = false;
+  for (let j = 0; j < b.length; j++) {
+    if (a[i].userID === b[j].userID) {
+      ans = {
+        userID: a[i].userID,
+        Name: a[i].Name,
+        DateOfBirth: b[j].DateOfBirth,
+      };
+      result.push(ans);
+      exist = true;
+      break;
+    }
+  }
+  if (!exist) {
+    ans = {
+      userID: a[i].userID,
+      Name: a[i].Name,
+      DateOfBirth: null,
+    };
+    result.push(ans);
+  }
+}
+
+
+for (let j = 0; j < b.length; j++) {
+  const exists = a.find(user => user.userID === b[j].userID);
+  if (!exists) {
+    ans = {
+      userID: b[j].userID,
+      Name: null,
+      DateOfBirth: b[j].DateOfBirth,
+    };
+    result.push(ans);
+  }
+}
+
+for (let i = 0; i < result.length - 1; i++) {
+  for (let j = 0; j < result.length - i - 1; j++) {
+    if (result[j].userID > result[j + 1].userID) {
+      // Swap result[j] and result[j+1]
+      let temp = result[j];
+      result[j] = result[j + 1];
+      result[j + 1] = temp;
+    }
+  }
+}
+
+console.log(result);

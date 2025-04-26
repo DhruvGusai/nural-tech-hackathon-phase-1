@@ -1,1 +1,46 @@
-.
+CREATE PROC MergeArray
+AS
+begin
+Drop Table IF exists a;
+Drop Table IF exists b;
+Create Table a
+(
+  userID Bigint,
+  Name Varchar(200)
+);
+Create Table b
+(
+  userID Bigint,
+  DateOfBirth Varchar(20)
+);
+
+Insert into a(userID,Name)
+Values(1,'Jhon'),
+(2,'Jane'),
+(4,'Michael'),
+(5,'Alice'),
+(7,'Jhon');
+
+Insert into b(userID,DateOfBirth)
+Values(1,'02-05-2000'),
+(3,'15-08-1998'),
+(5,'11-02-1995'),
+(6,'22-09-1990'),
+(7,'15-03-1985');
+
+--select * from a;
+--select * from b;
+
+
+
+select a.userID,a.Name,b.DateOfBirth from a Left join b
+on a.userID=b.userID
+WHERE b.userID IS NULL
+Union ALL
+select b.userID,a.Name,b.DateOfBirth from b Left join a
+on a.userID=b.userID
+WHERE a.userID IS NULL
+Union ALL
+select a.userID,a.Name,b.DateOfBirth from a inner join b
+on a.userID=b.userID order by a.userID asc;
+END;

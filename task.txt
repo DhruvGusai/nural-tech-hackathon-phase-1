@@ -1,1 +1,39 @@
-.
+void main() {
+  List a = [
+    {'userID': 1, 'Name': "Jhon"},
+  ];
+
+  List b = [
+    {'userID': 1, 'DateOfBirth': "02-05-2000"},
+  ];
+
+  List output = mergeUserData(a, b);
+
+  for (var data in output) {
+    print(data.toString());
+  }
+}
+
+List mergeUserData(a, b) {
+  List output = [];
+  List conbinedList = [];
+  for (var listA in a) {
+    for (var listB in b) {
+      if (listA['userID'] == (listB['userID'])) {
+        output.add({
+          'userID': listA['userID'] ?? null,
+          'Name': listA['Name'] ?? null,
+          'DateOfBirth': listA['DateOfBirth'] ?? null,
+        });
+      } else if (listA['userID'] != (listB['userID'])) {
+        output.add({
+          'userID': listB['userID'] ?? null,
+          'Name': listB['Name'] ?? null,
+          'DateOfBirth': listB['DateOfBirth'] ?? null,
+        });
+      }
+    }
+  }
+
+  return output;
+}

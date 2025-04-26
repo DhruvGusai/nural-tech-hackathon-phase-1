@@ -1,1 +1,52 @@
-.
+// Online C# Editor for free
+// Write, Edit and Run your C# code using C# Online Compiler
+
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine ("Try programiz.pro");
+        listIdName objName= new listIdName();
+        IdName ObjIdName1=new IdName() ;
+        
+        ObjIdName1.id=1;
+        ObjIdName1.name="Ram";
+        
+        ObjIdName.id=2;
+        objIdName.name="Shyam";
+        ObjIdName.id=3;
+        objIdName.name="Mohan";
+        
+        IdDOB objIDDOB[];
+        objIDDOB[0].id=1;
+        objIDDOB[0].dateOfBirth="1-sep-2000";
+        objIDDOB[1].id=3;
+        objIDDOB[1].dateOfBirth="2-sep-2000";
+        objIDDOB[2].id=4;
+        objIDDOB[2].dateOfBirth="3-sep-2000";
+        
+        
+    }
+    public class IdName
+    {
+        public fixed int id {get;set;};
+        public fixed string name {get;set;};
+    }
+    public class listIdName
+    {
+        public IdName idname{get;set;}
+    }
+    public class ListOfIdName
+    {
+        List <IdName> idnames= new List<IdName>;
+    }
+    }
+    }
+    public class IdDOB
+    {
+        public int id{get;set;};
+        public string dateOfBirth{get;set};
+    }
+}.
